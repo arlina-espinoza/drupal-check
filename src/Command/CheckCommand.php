@@ -217,7 +217,7 @@ class CheckCommand extends Command
         $command = array_merge($command, $paths);
 
         $process = new Process($command);
-        $process->setTty(Tty::isTtySupported());
+        $process->setTty(FALSE);
         $process->setTimeout(null);
         $process->run(static function ($type, $buffer) use ($output) {
             if (Process::ERR === $type) {
